@@ -1,5 +1,8 @@
-﻿namespace WebApi
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace WebApi
 {
+    [Keyless]
     public class Class
     {
         public string name { get; set; }
