@@ -6,14 +6,14 @@ namespace WebApi
     public class Student
     {
         public int Id { get; set; }
-        public  string name { get; set; }
+        public string name { get; set; }
         public string lastName { get; set; }
-        public double avarage { get; set; }
-        public string bestClass { get; set; }
-        public string worstClass { get; set; }
+        public int Student_sClassesId { get; set; }
+        Student_sClasses studentclasses { get; set; }
+      
 
         public List<Class> classesList;
-     
+
         public Student(string name, string lastName)
         {
             this.name = name;
@@ -42,17 +42,7 @@ namespace WebApi
 
         }
 
-        public void WorstClass(string content)
-        {
-            worstClass = content;
-
-
-        }
-
-        public void BestClass(string content)
-        { 
-            bestClass = content;
-        }
+      
 
     }
 }

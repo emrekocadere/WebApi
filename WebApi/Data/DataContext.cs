@@ -13,5 +13,6 @@ namespace WebApi.Data
             optionsBuilder.UseSqlServer("Server=EMREVIVO;Database=WebApi;Trusted_Connection=True;");
         }
         public DbSet<Student> Students { get; set; }
+        public DbSet<Student_sClasses> student_SClasses { get; set; }
     }
 }

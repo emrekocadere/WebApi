@@ -25,11 +25,8 @@ namespace WebApi.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<double>("avarage")
-                        .HasColumnType("float");
-
-                    b.Property<string>("bestClass")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Student_sClassesId")
+                        .HasColumnType("int");
 
                     b.Property<string>("lastName")
                         .HasColumnType("nvarchar(max)");
@@ -37,12 +34,30 @@ namespace WebApi.Migrations
                     b.Property<string>("name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.HasKey("Id");
+
+                    b.ToTable("Students");
+                });
+
+            modelBuilder.Entity("WebApi.Student_sClasses", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<double>("avarage")
+                        .HasColumnType("float");
+
+                    b.Property<string>("bestClass")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("worstClass")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Students");
+                    b.ToTable("student_SClasses");
                 });
 #pragma warning restore 612, 618
         }

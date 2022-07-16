@@ -32,9 +32,9 @@ namespace WebApi
                     
                 else
                     continue;
-                
+
             }
-            student.BestClass("the best class is "+tempName+" : "+tempResult);
+           // Student_sClasses.BestClass("the best class is "+tempName+" : "+tempResult);
         }
 
 
@@ -54,8 +54,8 @@ namespace WebApi
                     continue;
 
             }
-
-            student.WorstClass("the worst class is " + tempName + " : " + tempResult);
+            
+           // Student_sClasses.WorstClass("the worst class is " + tempName + " : " + tempResult);
         }
     }
 }
