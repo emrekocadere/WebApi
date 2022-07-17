@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using WebApi.Data;
 
 namespace WebApi.Controllers
 {
@@ -8,7 +9,7 @@ namespace WebApi.Controllers
     public class HomeController : ControllerBase
     {
         public  List<Student> student = new List<Student>();
-        //private DataContext dataContext;
+        private DataContext dataContext=new DataContext();
         public HomeController()
         {
            
@@ -18,7 +19,7 @@ namespace WebApi.Controllers
             Student stundet3 = new Student("ömer", "zengin");
             Student stundet4 = new Student("ekrem", "ozgur");
             Student stundet5 = new Student("salih", "yılmaz");
-            Student stundet6 = new Student("burak", "veyis");
+            Student stundet6 = new Student("burak", "veyisoğlu");
 
                        //-------------
             student.Add(stundet6);
@@ -37,11 +38,24 @@ namespace WebApi.Controllers
         }
 
         [HttpGet("{id}")]
-        public Student get(int id)
+        public Student getstudent(int id)
         {
             return student[id];
         }
 
-          
+        [HttpGet("addtodb")]
+        public string addToDb()
+        {
+            Student student1 = new Student("sukru ahmet","kocadere");
+            Student_sClasses std1 = student1.studentclasses;
+            dataContext.Students.Add(student1);
+            dataContext.student_SClasses.Add(std1);
+            dataContext.SaveChanges();
+
+            return "done";
+        }
+
+
     }
 }
+    

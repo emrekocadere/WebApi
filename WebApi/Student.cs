@@ -5,11 +5,11 @@ namespace WebApi
 {
     public class Student
     {
-        public int Id { get; set; }
-        public string name { get; set; }
-        public string lastName { get; set; }
-        public int Student_sClassesId { get; set; }
-        Student_sClasses studentclasses { get; set; }
+        public int Id { get; set; }//ok
+        public string name { get; set; }//ok
+        public string lastName { get; set; }//ok
+        public int Student_sClassesId { get; set; }//ok
+        public Student_sClasses studentclasses { get; set; }=new Student_sClasses();
       
 
         public List<Class> classesList;
@@ -20,8 +20,8 @@ namespace WebApi
             this.lastName = lastName;
 
             //----------------------------
-            Classes classes;
-            classes = new Classes();
+            Classes classes = new Classes();
+
 
             //*******************
 
@@ -39,8 +39,8 @@ namespace WebApi
         {
             ClassesCalculate calculate = new ClassesCalculate(this);
 
-
         }
+    
 
       
 

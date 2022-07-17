@@ -8,13 +8,15 @@ namespace WebApi
     {
         private List<Class> classes;
         private Student student;
-        
+        int tempResult;
         public ClassesCalculate(Student _student)
         {
             student=_student;
             classes = student.ReturnClasses();
+       
             BestClass();
             WorstClass();
+            Avarage();
         }
         
         public void BestClass()
@@ -34,7 +36,7 @@ namespace WebApi
                     continue;
 
             }
-           // Student_sClasses.BestClass("the best class is "+tempName+" : "+tempResult);
+            student.studentclasses.BestClass("the best class is "+tempName+" : "+tempResult);
         }
 
 
@@ -54,8 +56,18 @@ namespace WebApi
                     continue;
 
             }
+
+            student.studentclasses.WorstClass("the worst class is " + tempName + " : " + tempResult);
+        }
+
+        public void Avarage()
+        {
             
-           // Student_sClasses.WorstClass("the worst class is " + tempName + " : " + tempResult);
+            foreach(Class temp in classes)
+              {
+                tempResult += temp.getResult();
+            }
+            student.studentclasses.avarage = (double)(tempResult / classes.Count);
         }
     }
 }
