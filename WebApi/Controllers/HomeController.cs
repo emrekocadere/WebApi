@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Linq;
 using WebApi.Data;
 
 namespace WebApi.Controllers
@@ -43,7 +44,7 @@ namespace WebApi.Controllers
             return student[id];
         }
 
-        [HttpGet("addtodb")]
+        [HttpGet("inserttodb")]
         public string addToDb()
         {
             Student student1 = new Student("sukru ahmet","kocadere");
@@ -55,6 +56,13 @@ namespace WebApi.Controllers
             return "done";
         }
 
+        [HttpGet("selectall")]
+        public List<Student> selectAll()
+        {
+             List<Student>students = dataContext.Students.ToList();
+
+            return students;
+        }
 
     }
 }
