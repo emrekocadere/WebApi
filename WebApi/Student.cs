@@ -9,11 +9,11 @@ namespace WebApi
         public string name { get; set; }//ok
         public string lastName { get; set; }//ok
         public int Student_sClassesId { get; set; }//ok
-        public Student_sClasses studentclasses { get; set; }=new Student_sClasses();
+        public  Student_sClasses studentclasses { get; set; }
       
 
         public List<Class> classesList;
-
+ 
         public Student(string name, string lastName)
         {
             this.name = name;

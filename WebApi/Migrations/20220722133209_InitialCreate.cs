@@ -34,16 +34,27 @@ namespace WebApi.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Students", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Students_student_SClasses_Student_sClassesId",
+                        column: x => x.Student_sClassesId,
+                        principalTable: "student_SClasses",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Students_Student_sClassesId",
+                table: "Students",
+                column: "Student_sClassesId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "student_SClasses");
+                name: "Students");
 
             migrationBuilder.DropTable(
-                name: "Students");
+                name: "student_SClasses");
         }
     }
 }

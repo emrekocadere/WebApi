@@ -6,6 +6,7 @@
         public double avarage { get; set; }
         public string bestClass { get; set; }
         public string worstClass { get; set; }
+        //student ekle
         public void WorstClass(string content)
         {
             worstClass = content;

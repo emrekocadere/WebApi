@@ -9,7 +9,7 @@ using WebApi.Data;
 namespace WebApi.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220716000009_InitialCreate")]
+    [Migration("20220722133209_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,6 +38,8 @@ namespace WebApi.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Student_sClassesId");
+
                     b.ToTable("Students");
                 });
 
@@ -60,6 +62,17 @@ namespace WebApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("student_SClasses");
+                });
+
+            modelBuilder.Entity("WebApi.Student", b =>
+                {
+                    b.HasOne("WebApi.Student_sClasses", "studentclasses")
+                        .WithMany()
+                        .HasForeignKey("Student_sClassesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("studentclasses");
                 });
 #pragma warning restore 612, 618
         }
